@@ -4,7 +4,13 @@ import cvxpy as cp
 import numpy as np
 import matplotlib.pyplot as plt
 
-
+'''
+NOTE:
+Start and End dates can be adjusted for better accuracy.
+Efficient Frontier plot can be made more accurate by using better ticker
+options however as a default example use pre chosen tickers.
+Black-Litterman to be implemented
+'''
 
 def get_prices(tickers, start="2024-01-01", end="2025-09-27"):
     """
@@ -29,7 +35,6 @@ def max_sharpe_ratio(returns, rf):
     expected_returns = returns.mean().values * 252
     cov_mat = returns.cov().values * 252
     n = len(expected_returns)
-    rf_daily = rf / 252
 
     best_sharpe = -np.inf
     best_weights = None
@@ -128,10 +133,16 @@ def random_portfolios(returns, n_portfolios=5000):
         sharpes.append(sharpe)
     return np.array(risks), np.array(rets), np.array(sharpes)
 
+# -----------------------------
+# Black-Litterman Portfolio Optimization
+# -----------------------------
+def black_litterman():
+    pass
+
 
 def main():
-    #example stocks: apple, microsoft, amazon, google, bitcoin, tesla 
-    tickers = ["AAPL", "MSFT", "AMZN", "GOOGL","BTC-USD","TSLA"]
+    #example stocks: apple, microsoft, amazon, google, bitcoin, tesla, nVidia 
+    tickers = ["AAPL", "MSFT", "AMZN", "GOOGL","BTC-USD","TSLA", "NVDA"]
     prices = get_prices(tickers)
 
     rf = 0.02  # risk-free rate
@@ -185,6 +196,8 @@ def main():
     #Optimal Weights
     weights_text = "\n".join([f"{ticker}: {w:.2%}" for ticker, w in zip(tickers, optimized)])
     plt.gcf().text(0.87, 0.65, f"Optimal Weights:\n{weights_text}", fontsize=10, ha='left')
+
+    #TODO: add plot for black-litterman optimization
 
     plt.xlabel("Risk (Std Dev)")
     plt.ylabel("Expected Return")
