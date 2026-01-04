@@ -13,7 +13,7 @@ A financial engineering tool that leverages **Modern Portfolio Theory (MPT)** to
 
 ## 📐 Manual Maths Verification
 **"Trust, but Verify."**
-To ensure the Python "Black Box" optimisation is accurate, this project includes a dedicated manual verification file (`/math-verification` or similar).
+To ensure the Python "Black Box" optimisation is accurate, this project includes a dedicated manual verification file which manually calculates some of the features using CVXPY (`/optimiser`).
 
 * **Process:** The covariance matrices, expected returns, and Sharpe Ratios calculated by the Python algorithms were cross-referenced against manual matrix multiplication in Excel/Spreadsheets.
 * **Result:** The automated engine produces results within a <0.01% margin of error compared to the manual derivation, confirming the integrity of the maths models.
