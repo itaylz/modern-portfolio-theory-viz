@@ -41,7 +41,7 @@ To ensure the Python "Black Box" optimisation is accurate, this project includes
 ### Installation
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/YOUR_USERNAME/YOUR_REPO.git](https://github.com/YOUR_USERNAME/YOUR_REPO.git)
+    git clone [https://github.com/itay/modern-portfolio-theory-viz.git](https://github.com/itaylz/modern-portfolio-theory-viz.git)
     cd YOUR_REPO
     ```
 
@@ -66,5 +66,3 @@ To ensure the Python "Black Box" optimisation is accurate, this project includes
 5.  **Simulation:**
     * Randomly assigns weights 2,000 times to map the volatility surface.
 
-## 📄 Licence
-This project is open-source. Feel free to use it for personal financial analysis.
