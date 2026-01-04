@@ -1,0 +1,43 @@
+services:
+  # 1. Python Math Service
+  python-api:
+    build: ./python
+    container_name: python-service
+    ports:
+      - "8000:8000"
+    networks:
+      - portfolio-net
+
+  # 2. Java Backend (Depends on Python)
+  java-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ~/.m2:/root/.m2
+    container_name: java-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - PYTHON_HOST=python-api  # Tells Java to look for the container named 'python-api'
+      - JAVA_TOOL_OPTIONS=-Xmx512m #limit java to 512mb of RAM
+    depends_on:
+      - python-api
+    networks:
+      - portfolio-net
+
+  # 3. React Frontend
+ # frontend:
+  #  build: ./frontend
+   # container_name: react-frontend
+   # ports:
+    #  - "3000:3000"
+    # React runs in the browser, so it needs to know where the backend is via simple localhost
+   # environment:
+    #  - REACT_APP_API_URL=http://localhost:8080
+    #networks:
+     # - portfolio-net
+
+networks:
+  portfolio-net:
+    driver: bridge

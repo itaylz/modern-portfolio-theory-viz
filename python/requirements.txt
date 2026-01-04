@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pandas
+yfinance
+cvxpy
+numpy
+matplotlib
+scipy
+PyPortfolioOpt
