@@ -50,7 +50,7 @@ To ensure the Python "Black Box" optimisation is accurate, this project includes
     ```bash
     docker-compose up --build
     ```
-    NOTE: If app start-up is too slow comment out the frontend section in the Docker-compose.yml and run the react service      locally using:
+    NOTE: If app start-up is too slow comment out the frontend section in the docker-compose.yml and run the react service      locally using:
     ```bash
      npm start
     ```
