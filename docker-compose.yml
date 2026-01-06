@@ -32,7 +32,7 @@ services:
     container_name: react-frontend
     ports:
       - "3000:3000"
-     React runs in the browser, so it needs to know where the backend is via simple localhost
+     #React runs in the browser, so it needs to know where the backend is via simple localhost
     environment:
       - REACT_APP_API_URL=http://localhost:8080
     networks:
