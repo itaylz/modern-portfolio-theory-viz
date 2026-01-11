@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.springframework.http.HttpHeaders;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpEntity;
@@ -20,8 +21,9 @@ public class PythonOptimiserService {
     private final RestTemplate restTemplate;
 
     //start rest service 
-    public PythonOptimiserService(){
-        this.restTemplate = new RestTemplate();
+    @Autowired
+    public PythonOptimiserService(RestTemplate restTemplate){
+        this.restTemplate = restTemplate;
     }
 
     public Map<String, Object> runOptimiser(List<String> tickers, String start, String end) {

@@ -20,8 +20,13 @@ import com.fasterxml.jackson.core.type.TypeReference;
 @CrossOrigin(origins = "*")
 public class OptimisationController {
 
+    
+    private final PythonOptimiserService pythonService;
+
     @Autowired
-    private PythonOptimiserService pythonService;
+    public OptimisationController(PythonOptimiserService pythonService) {
+        this.pythonService = pythonService;
+    }
 
     @PostMapping
     public ResponseEntity<Map<String, Object>> optimisePortfolio(@RequestBody Map<String, Object> request) {

@@ -63,6 +63,10 @@ def max_sharpe_ratio(returns, rf):
                 best_sharpe = sharpe
                 best_weights = w.value
 
+    #check valid weights
+    if best_weights is None:
+        raise ValueError("Optimisation failed: No valid portfolio found (e.g., flat returns or solver error)")
+
     weights = np.maximum(best_weights, 0)
     weights /= weights.sum()
 
@@ -85,7 +89,7 @@ def minimun_variance(returns):
     prob.solve()
 
     if w.value is None:
-        raise ValueError("optimization failed")
+        raise ValueError("optimisation failed")
     
     weights = np.round(w.value, 4)
     weights[weights < 1e-4] = 0

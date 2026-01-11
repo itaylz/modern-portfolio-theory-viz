@@ -7,3 +7,5 @@ numpy
 matplotlib
 scipy
 PyPortfolioOpt
+pytest
+pytest-mock
